@@ -38,7 +38,7 @@ class PWorkbook(private val workbook: XSSFWorkbook = XSSFWorkbook()) : Workbook 
      * @return The existing sheet, or a new one if named sheet doesn't exit.
      */
     fun sheet(name: String = "Sheet ${numberOfSheets + 1}", block: PSheet.() -> Unit) =
-        PSheet(getSheet(name) ?: workbook.createSheet(name)).apply(block)
+        PSheet(this, getSheet(name) ?: workbook.createSheet(name)).apply(block)
 
     /**
      * Get an existing sheet by its index.
