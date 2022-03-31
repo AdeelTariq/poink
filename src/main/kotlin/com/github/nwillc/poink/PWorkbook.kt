@@ -46,7 +46,7 @@ class PWorkbook(private val workbook: XSSFWorkbook = XSSFWorkbook()) : Workbook 
      * @param block Code to perform on the sheet.
      * @return Sheet at a given index.
      */
-    fun sheet(index: Int, block: PSheet.() -> Unit) = PSheet(workbook.getSheetAt(index)).apply(block)
+    fun sheet(index: Int, block: PSheet.() -> Unit) = PSheet(this, workbook.getSheetAt(index)).apply(block)
 
     /**
      * Get a named [CellStyle], or create if absent, in the workbook for future use.
