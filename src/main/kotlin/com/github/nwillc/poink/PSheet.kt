@@ -29,6 +29,7 @@ import java.util.Calendar
  */
 @PoinkDsl
 class PSheet(
+    val parent: PWorkbook,
     private val sheet: Sheet
 ) : Sheet by sheet {
     private val format = workbook.createDataFormat()
